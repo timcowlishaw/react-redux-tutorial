@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
-
+import News from '../containers/News.js';
 class Home extends Component {
     render() {
-        return ( <div> Welcome to MadOwlNews.com </div> );
+        return (
+            <div>
+                <div> Bienvenido a NoticiasBuhoLoco.com </div>
+                <div>
+                    <News />
+                </div>
+            </div>
+        );
     }
 }
 
