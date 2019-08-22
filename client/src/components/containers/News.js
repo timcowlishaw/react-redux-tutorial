@@ -12,6 +12,10 @@ class News extends Component {
         return (
             <div>
                 <h2> Las Noticias </h2>
+                { this.props.news.length > 0
+                  ? (<ul> { newsItems } </ul>)
+                  : (<div>Lo siento, no hay noticias!</div>)
+                }
                 <ul>
                     { newsItems }
                 </ul>
