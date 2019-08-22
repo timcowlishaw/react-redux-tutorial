@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class NewsItemListing extends Component {
     render() {
         return (
                 <div>
-                    <div><b>{this.props.title}</b></div>
+                    <div>
+                        <Link to={`/news/${this.props.id}`}>
+                            <b>{this.props.title}</b>
+                        </Link>
+                    </div>
                     <div>{this.props.teaser}</div>
                 </div>
         );
