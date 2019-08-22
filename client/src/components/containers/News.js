@@ -1,18 +1,29 @@
 import React, {Component} from 'react';
 import NewsItemListing from '../presentation/NewsItemListing';
+import { connect } from 'react-redux';
 
 class News extends Component {
+
     render() {
+        const newsItems = this.props.news.map( (news, i) => {
+            return ( <li key={i}><NewsItemListing data={news} /></li> );
+        });
+
         return (
             <div>
                 <h2> Las Noticias </h2>
                 <ul>
-                <li><NewsItemListing id="1" title="Buho Loco Tortura a Conductores" teaser="Se ha visto un buho que caza a los coches en Zaragoza" /></li>
-                <li><NewsItemListing id="1" title="Buho Roba Cartas" teaser="Unas cartas han desaparecido en Tarragona -  Un buho es sospechoso." /></li>
+                    { newsItems }
                 </ul>
             </div>
         );
     }
 }
 
-export default News;
+const mapStateToProps = state => {
+    return {
+        news: state.news.news
+    };
+}
+
+export default connect(mapStateToProps)(News);
